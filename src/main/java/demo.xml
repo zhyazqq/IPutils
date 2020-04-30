@@ -1,0 +1,19 @@
+<definitions xmlns:tns="http://org.example.server" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://org.example.server">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://org.example.server" schemaLocation="http://localhost:9999/demo?xsd=1"/>
+        </xsd:schema>
+    </types>
+    <message name="authorization">
+        <part name="parameters" element="tns:authorization"/>
+    </message>
+    <message name="authorizationResponse">
+        <part name="parameters" element="tns:authorizationResponse"/>
+    </message>
+    <portType name="Login">
+        <operation name="authorization">
+            <input xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata" ns1:Action="http://org.example.server/Login/authorizationRequest" message="tns:authorization"/>
+            <output xmlns:ns2="http://www.w3.org/2007/05/addressing/metadata" ns2:Action="http://org.example.server/Login/authorizationResponse" message="tns:authorizationResponse"/>
+        </operation>
+    </portType>
+</definitions>
